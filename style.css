@@ -136,3 +136,94 @@ footer {
         font-size: 2rem;
     }
 }
+.survey-desktop {
+    display: block;
+}
+
+.survey-mobile {
+    display: none;
+    text-align: center;
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .survey-desktop {
+        display: none;
+    }
+
+    .survey-mobile {
+        display: block;
+    }
+
+    .survey-button {
+        display: inline-block;
+        padding: 15px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .note {
+        font-size: 14px;
+        color: #555;
+        margin-top: 8px;
+    }
+}
+section {
+    scroll-margin-top: 100px; /* sesuaikan tinggi navbar */
+}
+
+/* ======================
+   NAVBAR HP (DESKTOP AMAN)
+====================== */
+
+/* checkbox benar-benar hilang */
+#nav-toggle {
+    display: none;
+}
+
+/* hamburger default mati (desktop) */
+.menu-toggle {
+    display: none;
+}
+
+/* ======================
+   KHUSUS HP
+====================== */
+@media (max-width: 768px) {
+
+    header {
+        text-align: center;
+    }
+
+    /* tampilkan hamburger */
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    /* menu HP */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* buka menu */
+    #nav-toggle:checked ~ .nav-menu {
+        display: flex;
+    }
+}
+
