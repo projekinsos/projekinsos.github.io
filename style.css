@@ -222,8 +222,7 @@ section {
     }
 
     /* buka menu */
-    #nav-toggle:checked ~ .nav-menu {
+    #nav-toggle:checked + ~ .nav-menu {
         display: flex;
     }
 }
-
