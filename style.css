@@ -226,3 +226,42 @@ section {
         display: flex;
     }
 }
+/* ===============================
+   FIX TOTAL: SEMBUNYI DI LAPTOP
+================================ */
+
+/* checkbox benar-benar hilang */
+#nav-toggle {
+    display: none !important;
+}
+
+/* icon ☰ MATI di desktop */
+.menu-toggle {
+    display: none !important;
+}
+
+/* ===============================
+   KHUSUS HP SAJA
+================================ */
+@media (max-width: 768px) {
+
+    /* tampilkan icon ☰ */
+    .menu-toggle {
+        display: block !important;
+        font-size: 26px;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    /* menu HP */
+    nav {
+        display: none;
+        flex-direction: column;
+    }
+
+    /* buka menu saat dicentang */
+    #nav-toggle:checked + .menu-toggle + nav {
+        display: flex;
+    }
+}
