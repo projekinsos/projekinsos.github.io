@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Sosial - Sosiologi Interaktif</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #f1c40f;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(52, 73, 94, 0.85), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f1c40f;
+        }
+
+        .content {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content h2 {
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #f1c40f;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+
+        .interactive-box {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .stratification-chart {
+            width: 100%;
+            height: 300px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stratification-layer {
+            height: 20%;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                padding: 20px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-sitemap"></i> Struktur Sosial</h1>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <a href="Homepage.html"><i class="fas fa-home"></i> Home</a>
+                <a href="perubahan-sosial.html"><i class="fas fa-exchange-alt"></i> Perubahan Sosial</a>
+                <a href="struktur-sosial.html" class="active"><i class="fas fa-sitemap"></i> Struktur Sosial</a>
+                <a href="kelompok-sosial.html"><i class="fas fa-users"></i> Kelompok Sosial</a>
+                <a href="kuis.html"><i class="fas fa-question-circle"></i> Kuis</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h2>Apa itu Struktur Sosial?</h2>
+        <p>Struktur sosial merujuk pada pola hubungan sosial yang teratur dan stabil dalam masyarakat, termasuk stratifikasi, peran sosial, dan institusi yang membentuk kehidupan kolektif.</p>
+    </section>
+    
+    <section class="content">
+        <h2><i class="fas fa-layer-group"></i> Komponen Struktur Sosial</h2>
+        
+        <div class="card">
+            <h3><i class="fas fa-chess-queen"></i> Stratifikasi Sosial</h3>
+            <p>Pembagian masyarakat ke dalam lapisan-lapisan sosial berdasarkan kriteria tertentu seperti ekonomi, pendidikan, atau kekuasaan.</p>
+            <button class="btn btn-primary" onclick="showDetail('stratifikasi')">Pelajari Detail</button>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-user-tag"></i> Status dan Peran</h3>
+            <p>Status adalah posisi seseorang dalam masyarakat, sedangkan peran adalah perilaku yang diharapkan dari seseorang berdasarkan statusnya.</p>
+            <button class="btn btn-primary" onclick="showDetail('status')">Pelajari Detail</button>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-network-wired"></i> Institusi Sosial</h3>
+            <p>Pola-pola perilaku yang telah mapan dan terorganisir yang memenuhi kebutuhan dasar masyarakat, seperti keluarga, pendidikan, dan agama.</p>
+            <button class="btn btn-primary" onclick="showDetail('institusi')">Pelajari Detail</button>
+        </div>
+        
+        <div class="interactive-box">
+            <h3><i class="fas fa-chart-bar"></i> Simulasi Stratifikasi Sosial</h3>
+            <p>Geser untuk melihat distribusi kelas sosial dalam masyarakat:</p>
+            
+            <div class="stratification-chart" id="stratChart">
+                <div class="stratification-layer" style="background: #e74c3c; height: 5%">
+                    Kelas Atas (5%)
+                </div>
+                <div class="stratification-layer" style="background: #3498db; height: 15%">
+                    Kelas Menengah Atas (15%)
+                </div>
+                <div class="stratification-layer" style="background: #2ecc71; height: 30%">
+                    Kelas Menengah (30%)
+                </div>
+                <div class="stratification-layer" style="background: #f1c40f; height: 35%">
+                    Kelas Pekerja (35%)
+                </div>
+                <div class="stratification-layer" style="background: #9b59b6; height: 15%">
+                    Kelas Bawah (15%)
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn btn-primary" onclick="randomizeStratification()">
+                    <i class="fas fa-random"></i> Acak Distribusi
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-video"></i> Video Pembelajaran</h3>
+            <p>Tonton video berikut untuk memahami konsep struktur sosial secara visual:</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 20px 0;">
+                <iframe width="100%" height="100%" style="position: absolute; top: 0; left: 0;" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        });
+        
+        function showDetail(type) {
+            let message = '';
+            
+            switch(type) {
+                case 'stratifikasi':
+                    message = 'Stratifikasi sosial dapat berbentuk:\n1. Stratifikasi Tertutup (kasta)\n2. Stratifikasi Terbuka (kelas)\n3. Stratifikasi Campuran';
+                    break;
+                case 'status':
+                    message = 'Status dapat berupa:\n1. Status Ascribed (diperoleh sejak lahir)\n2. Status Achieved (diperoleh melalui usaha)\n3. Status Assigned (diberikan oleh masyarakat)';
+                    break;
+                case 'institusi':
+                    message = 'Jenis institusi sosial:\n1. Institusi Keluarga\n2. Institusi Pendidikan\n3. Institusi Ekonomi\n4. Institusi Politik\n5. Institusi Agama';
+                    break;
+            }
+            
+            alert(message);
+        }
+        
+        function randomizeStratification() {
+            const chart = document.getElementById('stratChart');
+            const layers = chart.querySelectorAll('.stratification-layer');
+            
+            let total = 100;
+            const percentages = [];
+            
+            // Generate random percentages
+            for (let i = 0; i < layers.length - 1; i++) {
+                const percent = Math.floor(Math.random() * (total - (layers.length - i - 1) * 10));
+                percentages.push(percent);
+                total -= percent;
+            }
+            percentages.push(total);
+            
+            // Update layers
+            layers.forEach((layer, index) => {
+                const percent = percentages[index];
+                layer.style.height = `${percent}%`;
+                const text = layer.textContent.split('(')[0] + `(${percent}%)`;
+                layer.textContent = text;
+            });
+        }
+    </script>
+</body>
+</html>
