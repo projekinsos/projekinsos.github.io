@@ -1,121 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ujian KTI</title>
+    <title>Sosiologi Interaktif - Perubahan Sosial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="style.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #f1c40f;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(241, 196, 15, 0.2);
+            color: #f1c40f;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(52, 73, 94, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551135049-8a33b2c6c8e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #f1c40f;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            font-size: 2.2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2c3e50;
+                padding: 20px;
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation -->
-  <header>
-    <h1>Website Interaktif Sosiologi</h1>
-
-    <input type="checkbox" id="nav-toggle">
-
-    <label for="nav-toggle" class="menu-toggle">&#9776;</label>
-
-   <nav class="nav-menu">
-        <a href="#home">Penjelasan</a>
-        <a href="#background">Latar Belakang</a>
-        <a href="#factors">Faktor</a>
-        <a href="#examples">Tokoh</a>
-        <a href="#video">Video</a>
-</nav>
-</header>
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-users"></i> Sosiologi Interaktif</h1>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="perubahan-sosial.html"><i class="fas fa-exchange-alt"></i> Perubahan Sosial</a>
+                <a href="struktur-sosial.html"><i class="fas fa-sitemap"></i> Struktur Sosial</a>
+                <a href="kelompok-sosial.html"><i class="fas fa-users"></i> Kelompok Sosial</a>
+                <a href="kuis.html"><i class="fas fa-question-circle"></i> Kuis Interaktif</a>
+            </nav>
+        </div>
+    </header>
     
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h2>Apa itu perubahan sosial?</h2>
-        <p>Perubahan sosial merujuk pada proses peralihan atau transformasi dalam struktur, pola perilaku, nilai, dan institusi masyarakat yang terjadi secara berkelanjutan. 
-        Proses ini bersifat dinamis, dipengaruhi oleh sifat manusia yang selalu mencari perbaikan dan adaptasi terhadap lingkungan.</p>
+    <section class="hero">
+        <h2>Selamat Datang di Portal Belajar Sosiologi</h2>
+        <p>Jelajahi konsep-konsep sosiologi secara interaktif dengan materi lengkap, video pembelajaran, dan kuis menarik untuk menguji pemahaman Anda.</p>
+        
+        <div style="margin-top: 30px;">
+            <a href="perubahan-sosial.html" class="btn btn-primary">Mulai Belajar</a>
+            <a href="kuis.html" class="btn btn-secondary">Coba Kuis</a>
+        </div>
     </section>
-
-    <!-- Background Section -->
-    <section id="background" class="content">
-        <h2>Latar belakang Perubahan sosial</h2>
-        <p>
-            a. Manusia merupakan mahluk yang selalu ingin
-            berubah,aktif,kreatif,inovatif,agresif, selalu berkembang dan responsif
-            terhadap perubahan yang terjadi di masyarakat
-        </p>
-        <p>
-            b. Manusia menghadapi masalah-masalah baru.
-        </p>
-        <p>
-            c. Ketergantungan pada hubungan antarwarga pewaris
-            kebudayaan
-        </p>
-        <p>
-            d. Lingkungan yang berubah
-        </p>
-    </section>
-
-    <!-- Factors Section -->
-    <section id="factors" class="content light">
-        <h2>Faktor - faktor perubahan sosial</h2>
-        <ul>
-            <li>Rasa tidak puas terhadap keadaan dan situasi yang ada</li>
-            <li>Timbulnya keinginan untuk mengadakan perbaikan</li>
-            <li>Kesadaran akan adanya kekurangan dalam kebudayaan
-                sendiri sehingga berusaha untuk mengadakan perbaikan</li>
-            <li>Adanya usaha masyarakat untuk menyesuaikan diri
-                dengan keperluan, keadaan dan kondisi baru</li>
-             <li>Banyaknya kesulitan yang dihadapi – cenderung untuk
-                 mengatasi</li>
-             <li>Tingkat kebutuhan yang semakin kompleks</li>
-             <li>Sikap terbuka dari masyarakat terhadap hal-hal baru</li>
-        </ul>
-    </section>
-
-    <!-- Examples Section -->
-    <section id="examples" class="content">
-        <h2>Pandangan tokoh</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>Selo Soemarjan</h3>
-                <p>Selo Soemardjan mendefinisikan perubahan sosial sebagai perubahan pada lembaga-lembaga kemasyarakatan di suatu masyarakat yang memengaruhi sistem sosialnya, 
-                    termasuk nilai-nilai, sikap, dan pola perilaku.</p>
+    
+    <section class="features">
+        <h2>Materi Pembelajaran Sosiologi</h2>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3>Perubahan Sosial</h3>
+                <p>Memahami transformasi dalam struktur, nilai, dan institusi masyarakat dari waktu ke waktu.</p>
+                <a href="perubahan-sosial.html" class="btn btn-primary" style="margin-top: 15px;">Pelajari</a>
             </div>
-            <div class="card">
-                <h3>Kingslay Davis</h3>
-                <p> semua perubahan yang terjadi pada struktur dan fungsi masyarakat.
-                    Struktur merujuk pada pola hubungan sosial, norma, dan tingkatan masyarakat, sementara fungsi berkaitan dengan peran yang dijalankan oleh anggota masyarakat..</p>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <h3>Struktur Sosial</h3>
+                <p>Mempelajari pola hubungan sosial, stratifikasi, dan organisasi dalam masyarakat.</p>
+                <a href="struktur-sosial.html" class="btn btn-primary" style="margin-top: 15px;">Pelajari</a>
             </div>
-            <div class="card">
-                <h3>William F. Ogburn</h3>
-                <p>memandang perubahan sosial sebagai perubahan pada unsur-unsur kebudayaan, baik material (seperti teknologi) maupun nonmaterial (seperti nilai dan norma).</p>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Kelompok Sosial</h3>
+                <p>Menjelajahi berbagai bentuk kelompok dalam masyarakat dan interaksi di dalamnya.</p>
+                <a href="kelompok-sosial.html" class="btn btn-primary" style="margin-top: 15px;">Pelajari</a>
             </div>
         </div>
     </section>
-
-    <!-- Video Pembelajaran -->
-<section id="video" class="content light">
-    <h2>Video Pembelajaran Perubahan Sosial</h2>
-    <p>
-        Video berikut digunakan sebagai media pendukung pembelajaran
-        untuk membantu siswa memahami materi perubahan sosial.
-    </p>
-
-    <div class="video-container">
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/YZWs4beCsRw?si=pKbueRoYzVHcEexa" 
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-    </div>
-</section>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
